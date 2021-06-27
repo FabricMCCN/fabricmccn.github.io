@@ -14,11 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="社群创立的起点到目前为止中文 FabricMC 用户/开发者没有一个集中的论坛或者资源导航站，因此我们特意创建了方便中文用户/开发者的讨论以及内容发布的一个基于Hexo的社群站点。">
+  <meta name="description" content="由于总所周知的问题，在国内构建 Fabric 模组是一件非常缓慢的事情，因此我们需要一些小小的帮助以便更加快速的完成 Fabric 模组的构建。">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>社群的总纲 - FabricMCCN</title>
+  <title>如何加速Fabric模组的构建 - FabricMCCN</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="社群的总纲">
+            <span class="h2" id="subtitle" title="如何加速Fabric模组的构建">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-03 01:03" pubdate>
-        2021年6月3日 凌晨
+      <time datetime="2021-06-28 01:15" pubdate>
+        2021年6月28日 凌晨
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      937 字
+      566 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      6
        分钟
     </span>
   
@@ -225,59 +225,34 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">社群的总纲</h1>
+            <h1 style="display: none">如何加速Fabric模组的构建</h1>
             
             <div class="markdown-body">
-              <h2 id="社群创立的起点"><a href="#社群创立的起点" class="headerlink" title="社群创立的起点"></a>社群创立的起点</h2><p>到目前为止中文 FabricMC 用户/开发者没有一个集中的论坛或者资源导航站，因此我们特意创建了方便中文用户/开发者的讨论以及内容发布的一个基于<em>Hexo</em>的社群站点。</p>
+              <p>由于总所周知的问题，在国内构建 Fabric 模组是一件非常缓慢的事情，因此我们需要一些小小的帮助以便更加快速的完成 Fabric 模组的构建。</p>
 <span id="more"></span>
 
-<p>本站点本着开源共享的宗旨，所有自愿在本站发布的内容将会以<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh"><code>CC BY-SA 4.0 协议</code></a>发布，且尽可能保证文章所用到的内容开源共享。</p>
-<h2 id="社群准则"><a href="#社群准则" class="headerlink" title="社群准则"></a>社群准则</h2><p>本社群以开源共享平等为主要宗旨，您在自愿共享您的知识、技巧之时应当遵守以下几点</p>
+<h2 id="让-Gradle-使用代理的方案-推荐"><a href="#让-Gradle-使用代理的方案-推荐" class="headerlink" title="让 Gradle 使用代理的方案(推荐)"></a>让 Gradle 使用代理的方案(推荐)</h2><p>Gradle 不会根据系统的全局代理方案的启动而自动设定自身的代理方案，它需要一点小小的帮助才会使用代理。</p>
+<p>Gradle 的代理分为两种方案：项目方案，全局方案。其中项目方案会针对当前项目进行设定，而全局方案会对所有 Gradle 项目进行设定</p>
 <ul>
-<li>文章内容应当在发布之时为<strong>可用</strong>状态。</li>
-<li>发布的文章内容内不能包含<strong>歧视性</strong>内容。</li>
-<li>发布的文章内容内不能包含<strong>攻击性</strong>内容。</li>
-<li>发布的文章内容内不能包含<strong>用户/开发者之间的辩论</strong>，此辩论应当在<em>私下进行</em>。</li>
-<li>发布的文章内引用的代码应当尽可能保证<strong>属于开源内容</strong>。</li>
-<li>尽可能保证评论的有效性，尽可能不要出现<strong>无意义</strong>的评论。</li>
-<li>若有引用源，则尽可能的<strong>附带引用源</strong>的链接</li>
+<li>项目代理：在我们当前的 Fabric 模组文件夹之下会有一个 gradle.properties</li>
+<li>全局代理：在对应操作系统之下存在一个.gradle 文件夹，在其中新建 gradle.properties 文件即可</li>
 </ul>
-<h2 id="文章提交流程及要求要求"><a href="#文章提交流程及要求要求" class="headerlink" title="文章提交流程及要求要求"></a>文章提交流程及要求要求</h2><h3 id="对文章工具以及风格的提示"><a href="#对文章工具以及风格的提示" class="headerlink" title="对文章工具以及风格的提示"></a>对文章工具以及风格的提示</h3><p>我们强烈推荐使用<em>Visual Studio Code</em>进行文章编写，并且我们推荐以下插件</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/yzhang-gh/vscode-markdown">Markdown All in One</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/shd101wyy/vscode-markdown-preview-enhanced">Markdown Preview Enhanced</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/DavidAnson/vscode-markdownlint">markdownlint</a></li>
-</ul>
-<p>这些插件能帮助你写好你的文章，并且提供其他强大的功能。</p>
-<p>若文章内有代码，请在代码块标注好代码的语言，例如<code>Java</code>，<code>Kotlin</code>，<code>Golang</code>等。</p>
-<h3 id="如何编写文章"><a href="#如何编写文章" class="headerlink" title="如何编写文章?"></a>如何编写文章?</h3><ol>
-<li>搭建好 Hexo 环境。</li>
-<li>fork 本项目中的文章源，文章源处于<code>src</code>分支之下。</li>
-<li>使用<code>hexo new</code>命令新初始化文章。</li>
-<li>在新初始化的文章内进行你的创作。</li>
-<li>创作完毕后，提交你的文章，并且提交<code>Pull Request</code>到源项目，我们会在<strong>审核</strong>之后将你的文章合并到源项目当中。</li>
-<li>在完成以上流程之后<code>Github Action</code>将会自动完成以后的工作，并且生成页面。</li>
-</ol>
-<blockquote>
-<p>在提交前，应当仔细阅读本节内的<code>Pull Request</code>提交规则</p>
-</blockquote>
-<h3 id="如何正确的选择-tags"><a href="#如何正确的选择-tags" class="headerlink" title="如何正确的选择 tags?"></a>如何正确的选择 <code>tags</code>?</h3><p>正确的 <code>tags</code> 有助于用户<strong>快速</strong>的寻找想要大致一类的内容，不至于长时间找不到想要的内容。</p>
-<p>允许文章编写者提供新的<code>tags</code>，但是这一项需要文章编写者自行提交<code>Pull Request</code>在以下列表添加文章编写者想要新添加的<code>tags</code>，在审核通过后便允许使用了。</p>
-<p>当前已有的<code>tags</code>:</p>
-<ul>
-<li><code>announce</code>,发布通知性内容所用的<code>tags</code></li>
-<li><code>tech</code>,技术类文章所必须要添加的<code>tags</code></li>
-<li><code>tutorials</code>,教程性文章所必须要添加的<code>tags</code></li>
-</ul>
-<h3 id="如何正确的选择分类"><a href="#如何正确的选择分类" class="headerlink" title="如何正确的选择分类?"></a>如何正确的选择分类?</h3><p>分类能帮助用户更加方便的寻找一系列的文章，例如某某教程 1，2，3，4 等系列文章均可归类到一个分类。</p>
-<p>分类由文章编写者自行添加，请编写者合理的分配文章分类。</p>
-<h3 id="Pull-Request规则"><a href="#Pull-Request规则" class="headerlink" title="Pull Request规则"></a><code>Pull Request</code>规则</h3><p>出于规范化的需求，我们需要对<code>Pull Request</code>进行规范化。</p>
-<p>我们提供了合适的<code>labels</code>，方便用户我们对<code>Pull Request</code>进行审核，同时这是需要提交者<strong>自行添加</strong>的。</p>
-<p>合理的<code>Pull Request</code>我们会进行相应的操作，例如同意新文章，转换为 issues 等。</p>
-<h3 id="署名"><a href="#署名" class="headerlink" title="署名"></a>署名</h3><p>请在文章末尾写上您的名字以及最后修改时间，例如本文末尾。</p>
+<p>选择好你的目标之后，写入以下内容到文件内。重启 IDEA 即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs conf">systemProp.http.proxyHost=127.0.0.1<br>systemProp.http.proxyPort=10809<br>systemProp.https.nonProxyHosts=10.*|localhost<br><br>systemProp.https.proxyHost=127.0.0.1<br>systemProp.https.proxyPort=10809<br>systemProp.https.nonProxyHosts=10.*|localhost<br></code></pre></td></tr></table></figure>
+
+<p>在这其中，代理的地址<code>127.0.0.1</code>以及代理端口<code>10809</code>需要自行替换为自己的代理配置，以及需要同时配置<code>https</code>以及<code>http</code>代理，方可让 Gradle 正常工作。</p>
+<p>另外，如果有需要的话请在<code>noProxyHosts</code>添加不需要通过代理的地址，这样可以避免 Gradle 通过代理拉取国内的内容。</p>
+<h2 id="切换-Fabric-以及-MavenCenter-源，加速-Gradle-拉取内容"><a href="#切换-Fabric-以及-MavenCenter-源，加速-Gradle-拉取内容" class="headerlink" title="切换 Fabric 以及 MavenCenter 源，加速 Gradle 拉取内容"></a>切换 <code>Fabric</code> 以及 <code>MavenCenter</code> 源，加速 Gradle 拉取内容</h2><p>需要将<code>settings.gradle</code>替换为以下内容，加速 fabric-loom 的下载</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs groovy">pluginManagement &#123;<br>    repositories &#123;<br>        maven &#123;<br>            name = <span class="hljs-string">&#x27;Fabric&#x27;</span><br>            url = <span class="hljs-string">&#x27;https://repository.hanbings.io/&#x27;</span><br>        &#125;<br>        gradlePluginPortal()<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>同时在<code>build.gradle</code>中的<code>repositories</code>节点修改为以下内容，用于加速 FabricAPI 的下载</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs groovy">repositories &#123;<br>    maven &#123;<br>        url <span class="hljs-string">&#x27;https://maven.aliyun.com/nexus/content/groups/public&#x27;</span><br>    &#125;<br>    maven &#123;<br>        url <span class="hljs-string">&#x27;https://repository.hanbings.io/proxy&#x27;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中感谢<a target="_blank" rel="noopener" href="https://github.com/hanbings">hanbings</a>提供的 <a target="_blank" rel="noopener" href="https://repository.hanbings.io/proxy">FabricMC 镜像服务站</a>，让国内开发者能有更好的开发体验。</p>
+<h2 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a>特别注意</h2><p>当前 fabric-loom 会从 mojang 拉取 Minecraft 资源文件，这一方面暂时无法修改，也就是说我们暂时无法对这一环节进行加速。</p>
 <hr>
 <p>由<a target="_blank" rel="noopener" href="https://github.com/SUIBING112233">SUIBING112233</a>编写</p>
-<p>最后的修改时间为<code>2021-6-28 0:31</code> by <a target="_blank" rel="noopener" href="https://github.com/SUIBING112233">SUIBING112233</a></p>
+<p>最后的修改时间为<code>2021-6-28 2:01</code> by <a target="_blank" rel="noopener" href="https://github.com/SUIBING112233">SUIBING112233</a></p>
 
             </div>
             <hr>
@@ -287,7 +262,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%A4%BE%E5%8C%BA/">社区</a>
+                      <a class="hover-with-bg" href="/categories/FabricMod%E5%BC%80%E5%8F%91%E6%9D%82%E9%A1%B9/">FabricMod开发杂项</a>
                     
                   </div>
                 
@@ -297,7 +272,7 @@
                     
                       <a class="hover-with-bg" href="/tags/tutorials/">tutorials</a>
                     
-                      <a class="hover-with-bg" href="/tags/announce/">announce</a>
+                      <a class="hover-with-bg" href="/tags/tech/">tech</a>
                     
                   </div>
                 
@@ -314,15 +289,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/28/%E5%A6%82%E4%BD%95%E5%8A%A0%E9%80%9FFabric%E6%A8%A1%E7%BB%84%E7%9A%84%E6%9E%84%E5%BB%BA/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">如何加速Fabric模组的构建</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/06/03/%E7%A4%BE%E7%BE%A4%E7%9A%84%E6%80%BB%E7%BA%B2/">
+                        <span class="hidden-mobile">社群的总纲</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
