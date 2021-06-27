@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      566 字
+      567 字
     </span>
   
 
@@ -243,7 +243,7 @@
 <p>在这其中，代理的地址<code>127.0.0.1</code>以及代理端口<code>10809</code>需要自行替换为自己的代理配置，以及需要同时配置<code>https</code>以及<code>http</code>代理，方可让 Gradle 正常工作。</p>
 <p>另外，如果有需要的话请在<code>noProxyHosts</code>添加不需要通过代理的地址，这样可以避免 Gradle 通过代理拉取国内的内容。</p>
 <h2 id="切换-Fabric-以及-MavenCenter-源，加速-Gradle-拉取内容"><a href="#切换-Fabric-以及-MavenCenter-源，加速-Gradle-拉取内容" class="headerlink" title="切换 Fabric 以及 MavenCenter 源，加速 Gradle 拉取内容"></a>切换 <code>Fabric</code> 以及 <code>MavenCenter</code> 源，加速 Gradle 拉取内容</h2><p>需要将<code>settings.gradle</code>替换为以下内容，加速 fabric-loom 的下载</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs groovy">pluginManagement &#123;<br>    repositories &#123;<br>        maven &#123;<br>            name = <span class="hljs-string">&#x27;Fabric&#x27;</span><br>            url = <span class="hljs-string">&#x27;https://repository.hanbings.io/&#x27;</span><br>        &#125;<br>        gradlePluginPortal()<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs groovy">pluginManagement &#123;<br>    repositories &#123;<br>        maven &#123;<br>            name = <span class="hljs-string">&#x27;Fabric&#x27;</span><br>            url = <span class="hljs-string">&#x27;https://repository.hanbings.io/proxy&#x27;</span><br>        &#125;<br>        gradlePluginPortal()<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>同时在<code>build.gradle</code>中的<code>repositories</code>节点修改为以下内容，用于加速 FabricAPI 的下载</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs groovy">repositories &#123;<br>    maven &#123;<br>        url <span class="hljs-string">&#x27;https://maven.aliyun.com/nexus/content/groups/public&#x27;</span><br>    &#125;<br>    maven &#123;<br>        url <span class="hljs-string">&#x27;https://repository.hanbings.io/proxy&#x27;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
